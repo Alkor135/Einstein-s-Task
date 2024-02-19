@@ -17,7 +17,7 @@ for row in df_orig.itertuples(index=True):  # Перебираем строки 
     elem_lst = sample(elem_lst, len(elem_lst))  # Перемешивание словаря
     df.loc[row[0]] = elem_lst  # Добавление новой строки в DF
 
-df.to_excel(r'res_table.xlsx')
+df.to_excel(r'res_table.xlsx')  # Запись в Excel файл DF
 # print(df, '\n')
 
 task = (f'1. На улице стоят пять домов.\n'
@@ -38,5 +38,5 @@ task = (f'1. На улице стоят пять домов.\n'
         f'Кто пьёт {df.loc["Напиток", 1]}? Кто держит {df.loc["Животное", 5]}?')
 
 print(task)
-with open('usloviya.txt', 'w', encoding='UTF-8') as f:
-    f.write(task)
+with open('usloviya.txt', 'w', encoding='UTF-8') as file:
+    file.write(task)  # Запись в файл текста
