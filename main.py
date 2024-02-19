@@ -17,10 +17,10 @@ for row in df_orig.itertuples(index=True):  # Перебираем строки 
     elem_lst = sample(elem_lst, len(elem_lst))  # Перемешивание словаря
     df.loc[row[0]] = elem_lst  # Добавление новой строки в DF
 
+df.to_excel(r'res_table.xlsx')
 # print(df, '\n')
 
 task = (f'1. На улице стоят пять домов.\n'
-        # f'2. Англичанин живёт в красном доме.\n'
         f'2. {df.loc["Национальность", 3]} живёт в {df.loc["Цвет", 3]} дом.\n'
         f'3. У {df.loc["Национальность", 4]} есть {df.loc["Животное", 4]}.\n'
         f'4. В {df.loc["Цвет", 5]} дом пьют {df.loc["Напиток", 5]}.\n'
@@ -38,3 +38,5 @@ task = (f'1. На улице стоят пять домов.\n'
         f'Кто пьёт {df.loc["Напиток", 1]}? Кто держит {df.loc["Животное", 5]}?')
 
 print(task)
+with open('usloviya.txt', 'w', encoding='UTF-8') as f:
+    f.write(task)
